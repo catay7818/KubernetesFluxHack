@@ -24,9 +24,23 @@ Specifically, we now need to:
 3. Run the following to update the Flux configuration with a Kustomization:
 
     ```bash
-    az k8s-configuration flux update \
-    --name cluster-config \
-    --cluster-name yourAKSCluster \
-    --resource-group yourResourceGroup \
-    --kustomization name=mykustomization,path=./,prune=true,interval=5m
+    az k8s-cofiguration flux kustomization create \
+    --cluster-name <clusterName> \ 
+    --cluster-type connectedClusters \ 
+    --name cluster-config  \
+    --resource-group <resourceGroup> \
+    --kustomization-name flux-node --path ./deploy --prune
     ```
+
+4. And run the following to delete the default Kustomization that we don't need anymore:
+
+    ```bash
+    az k8s-cofiguration flux kustomization create \
+    --cluster-name <clusterName> \ 
+    --cluster-type connectedClusters \ 
+    --name cluster-config  \
+    --resource-group <resourceGroup> \
+    --kustomization-name kustomization-1
+    ```
+
+5. You can go to portal to see the new Kustomization you defined, and see how the GitOps flow is working.

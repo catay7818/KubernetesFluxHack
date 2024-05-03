@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-app-deployment
+  namespace: node-namespace
 spec:
   replicas: 1
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: <your-acr-name>.azurecr.io/app:<tag>
+        image: katantiak8shackreg.azurecr.io/fluximage:d9ced7657a994517072ea37a6bbc0722f05e46cd
         resources:
           requests:
             cpu: 125m

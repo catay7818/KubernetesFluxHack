@@ -38,16 +38,7 @@ Having this container image in the ACR will allow us to pull it into the K8s clu
 
     Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`.
 
-7. Rename `credential.sample.json` to `credential.json`, and replace the following values:
-
-    1. name: `"ANYNAME"`
-    2. subject: `"repo:<username>/KubernetesFluxHack:ref:refs/heads/main"`
-
-    and then run the folowing:
-
-    `az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json`
-
-    To give the app federated credentials. If this doesn't work, we can also run this in Azure portal.
+7. We will use the Azure portal to give the app federated ID credentials.
 
 8. We need to give the application access to ACR. In Portal, go to `App Registrations`, and copy the Application ID. Then run the following:
 
