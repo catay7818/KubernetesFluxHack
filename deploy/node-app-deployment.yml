@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: katantiak8shackreg.azurecr.io/fluximage:d9ced7657a994517072ea37a6bbc0722f05e46cd
+        image: catayflux.azurecr.io/catay-hello-world:cdf9a35f727d8bc6e0ef3b11b815ca9899fa0d93
         resources:
           requests:
             cpu: 125m
